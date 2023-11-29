@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Swiper CSS -->
+    <link href="./css/swiper-bundle.css" rel="stylesheet" />
+
+    <!-- Tailwind CSS -->
+    <link href="./css/output.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/style.css" />
+
+    <!-- Title Icon -->
+    <link rel="icon" type="image/x-icon" href="./assets/icons/tv.svg" />
+    <title>PAY CINEMA</title>
+  </head>
+  <body>
+    <!-- Navbar Start -->
+    <nav id="myNav" class="">
+      <a href="index.html" class="nav-left"
+        ><img src="./assets/icons/tv.svg" alt="logo" />PayCinema</a
+      >
+      <div class="nav-center">
+        <input
+          type="text"
+          class="input-search"
+          placeholder="What do you want to watch?"
+        />
+      </div>
+      <div class="nav-right">
+        <a href="#" type="button" class="nav-sign-in">Sign in</a>
+        <img src="./assets/icons/menu.svg" alt="menu" class="nav-menu" />
+      </div>
+    </nav>
+    <!-- Navbar End -->
+
+    <form action="#" class="movies" data-multi-step>
+      <div class="pagination">
+        <div class="number active" id="number-first">1</div>
+        <div class="bar" id="bar-first"></div>
+        <div class="number" id="number-second">2</div>
+        <div class="bar" id="bar-second"></div>
+        <div class="number" id="number-third">3</div>
+      </div>
+      <div class="steps">
+        <div class="step" id="movies" data-step></div>
+        <div class="step" data-step>
+          <div class="seat-map">
+            <div class="seat-category">
+              <div class="seat-catPrice">
+                <h2>Premium : Rp. 25.000</h2>
+                <h2>Premiere : Rp. 50.000</h2>
+              </div>
+              <h2></h2>
+              <button
+                id="premium"
+                type="button"
+                class="cat cat-active"
+                onclick="premiumSubmit()"
+              >
+                PREMIUM
+              </button>
+              <button
+                id="premiere"
+                type="button"
+                class="cat"
+                onclick="premiereSubmit()"
+              >
+                PREMIERE
+              </button>
+            </div>
+            <div class="screen">SCREEN</div>
+            <div class="seat-menu-flex">
+              <div class="seat">A1</div>
+              <div class="seat">A2</div>
+              <div class="seat">A3</div>
+              <div class="seat seat-occupied">A4</div>
+              <div class="seat">A5</div>
+              <div class="seat">A6</div>
+              <div class="seat">A7</div>
+            </div>
+            <div class="seat-menu-flex">
+              <div class="seat">B1</div>
+              <div class="seat">B2</div>
+              <div class="seat">B3</div>
+              <div class="seat">B4</div>
+              <div class="seat">B5</div>
+              <div class="seat">B6</div>
+              <div class="seat">B7</div>
+            </div>
+            <div class="seat-menu-flex">
+              <div class="seat">C1</div>
+              <div class="seat seat-occupied">C2</div>
+              <div class="seat">C3</div>
+              <div class="seat">C4</div>
+              <div class="seat">C5</div>
+              <div class="seat">C6</div>
+              <div class="seat">C7</div>
+            </div>
+            <div class="seat-menu-flex">
+              <div class="seat">D1</div>
+              <div class="seat seat-occupied" aria-disabled="true">D2</div>
+              <div class="seat">D3</div>
+              <div class="seat">D4</div>
+              <div class="seat">D5</div>
+              <div class="seat">D6</div>
+              <div class="seat">D7</div>
+            </div>
+            <div class="seat-menu-flex">
+              <div class="seat">E1</div>
+              <div class="seat">E2</div>
+              <div class="seat">E3</div>
+              <div class="seat">E4</div>
+              <div class="seat seat-occupied">E5</div>
+              <div class="seat">E6</div>
+              <div class="seat">E7</div>
+            </div>
+            <div class="seat-btn">
+              <button type="button" class="prev" data-previous>Previous</button>
+              <div type="button" id="total" class="next cursor-not-allowed">
+                Total :
+              </div>
+              <button type="button" class="next" data-next>Next</button>
+            </div>
+          </div>
+        </div>
+        <div class="step" data-step>
+          <form action="#" id="myForm">
+            <div class="seat-form">
+              <div class="input-group">
+                <label class="input-label" id="name" for="name">Name</label>
+                <input
+                  type="text"
+                  class="input-form"
+                  placeholder="Your Name . ."
+                  required
+                />
+              </div>
+              <div class="input-group">
+                <label class="input-label" id="email" for="email">Email</label>
+                <input
+                  type="email"
+                  class="input-form"
+                  placeholder="example@gmail.com"
+                  required
+                />
+              </div>
+              <div class="input-group">
+                <label class="input-label" id="phone" for="phone">Phone</label>
+                <input
+                  type="number"
+                  class="input-form"
+                  placeholder="08xxxxxxxxxx"
+                  required
+                />
+              </div>
+              <div class="checkbox-group" id="checkbox-group">
+                <div class="checkbox-flex">
+                  <input
+                    type="checkbox"
+                    name="terms"
+                    id="terms"
+                    required
+                    onchange="activePopup(this)"
+                  />
+                  <label for="terms"
+                    >Saya menyetujui syarat dan ketentuan yang berlaku</label
+                  >
+                </div>
+              </div>
+              <div class="btn-group">
+                <button type="button" class="prev" data-previous>
+                  Previous
+                </button>
+                <button
+                  type="submit"
+                  class="submit hidden"
+                  id="submit"
+                  onclick="openPopup()"
+                  value="Submit"
+                >
+                  Submit
+                </button>
+              </div>
+              <div class="popup hidden">
+                <div class="popup-flex">
+                  <h2 class="popup-title">Thank You</h2>
+                  <a
+                    href="index.html"
+                    type="button"
+                    class="popup-btn"
+                    href="index.html"
+                    onclick="closePopup()"
+                  >
+                    OK
+                  </a>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </form>
+
+    <!-- Script JS -->
+    <script src="./js/style.js"></script>
+
+    <!-- Popular API -->
+    <script src="./js/popularIAPI_ID.js"></script>
+  </body>
+</html>
